@@ -3,9 +3,9 @@ version: "3.8"
 networks:
   korbojoyecommerce:
     driver: bridge
-    korbojoyadmin:
+  korbojoyadmin:
     driver: bridge
-    korbojoymembers:
+  korbojoymembers:
     driver: bridge
 
 services:
