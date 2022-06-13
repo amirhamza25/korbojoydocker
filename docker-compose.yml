@@ -7,6 +7,10 @@ networks:
     driver: bridge
   korbojoymembers:
     driver: bridge
+  korbojoyagent:
+    driver: bridge
+  korbojoyvendor: 
+    driver: bridge
 
 services:
   ecommerce:
@@ -36,3 +40,21 @@ services:
       - "8052:3000"
     networks:
       - korbojoymembers
+  korbojoyagent:
+    build:
+      context: ./korbojoyagent
+      dockerfile: Dockerfile_Agent
+    image: korbojoyagent
+    ports:
+      - "8053:3000"
+    networks:
+      - korbojoyagent
+  korbojoyvendor:
+    build:
+      context: ./korbojoyvendor
+      dockerfile: Dockerfile_Vendor
+    image: korbojoyvendor
+    ports:
+      - "8054:3000"
+    networks:
+      - korbojoyvendor
