@@ -1,6 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { listOfVendorAtom } from "../atom/ListOfVendorAtom";
 function ListOfVendor() {
@@ -12,7 +12,7 @@ function ListOfVendor() {
   }, [updateVendor]);
 
   const vendorList = useRecoilValue(listOfVendorAtom);
-  console.log(vendorList);
+  // console.log(vendorList);
   return (
     <div>
       <section className="category-section top-category bg-grey pt-10 pb-10 appear-animate">

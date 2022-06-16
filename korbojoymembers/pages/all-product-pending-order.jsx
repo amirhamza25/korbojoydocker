@@ -68,7 +68,7 @@ const AllPendingProductOrder = (props) => {
                       <th>Serial</th>
                       <th>Date</th>
 
-                      <th>Outlet/Vendor information</th>
+                      <th>Outlet/Agent information</th>
                       <th>Invoice</th>
                       <th>Delivery Type</th>
                       <th>Delivery Address</th>
@@ -80,6 +80,7 @@ const AllPendingProductOrder = (props) => {
                   </thead>
                   <tbody>
                     {pendingAllProductOrders.map((item, index) => {
+                      const agentInfo = item.agents[0];
                       const streetaddress = JSON.parse(item.deliveryDetails);
                       return (
                         <tr key={index}>
@@ -94,7 +95,7 @@ const AllPendingProductOrder = (props) => {
                               <div className="modal-dialog modal-dialog-centered" role="document">
                                 <div className="modal-content">
                                   <div className="modal-header">
-                                    <h5 className="modal-title">Vendor Details</h5>
+                                    <h5 className="modal-title">Agent Details</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">×</span>
                                     </button>
@@ -104,20 +105,20 @@ const AllPendingProductOrder = (props) => {
                                       <table id="datatable" className="display compact table table-striped table-bordered">
                                         <tbody>
                                           <tr>
-                                            <th>Vendor Name</th>
-                                            <td>{streetaddress.name}</td>
+                                            <th>Agent Name</th>
+                                            <td>{agentInfo.name}</td>
                                           </tr>
                                           <tr>
-                                            <th>Vendor Phone Number</th>
-                                            <td>{streetaddress.number}</td>
+                                            <th>Agent Phone Number</th>
+                                            <td>{agentInfo.number}</td>
                                           </tr>
                                           <tr>
-                                            <th>Vendor Email</th>
-                                            <td>{streetaddress.email}</td>
+                                            <th>Agent Email</th>
+                                            <td>{agentInfo.email}</td>
                                           </tr>
                                           <tr>
-                                            <th>Vendor Address</th>
-                                            <td>{streetaddress.presentAddress}</td>
+                                            <th>Agent Address</th>
+                                            <td>{agentInfo.officeAddress}</td>
                                           </tr>
                                         </tbody>
                                       </table>

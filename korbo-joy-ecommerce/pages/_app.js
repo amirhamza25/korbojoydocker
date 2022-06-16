@@ -16,7 +16,7 @@ export default function MyApp({ Component, pageProps }) {
       // JWT exp is in seconds
       if (asPath != "/") {
         if (decodedToken.exp * 1000 < currentDate.getTime()) {
-          console.log("Token expired.");
+          // console.log("Token expired.");
           // window.location.href = "https://korbo-joy-ecommerce.vercel.app";
         }
       }

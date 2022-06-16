@@ -1,5 +1,4 @@
 import axios from "axios";
-import React from "react";
 
 const invoiceItem = (props) => {
   // const product = props.getCatagoryWiseProductShow;
@@ -32,17 +31,16 @@ const invoiceItem = (props) => {
                         {AllProductInfo1.map((pd, index) => {
                           return (
                             <ul className="list-unstyled text-right" key={index}>
-                              <li>{pd.agents[0].companyName}</li>
-                              <li>{pd.agents[0].officeAddress}</li>
-                              <li>{pd.agents[0].permanentAddress}</li>
-                              <li>{pd.agents[0].number}</li>
+                              <li>Company Name: {pd.agents[0].companyName}</li>
                             </ul>
                           );
                         })}
                       </div>
                     </div>
+
                     {/* col-lg-6 end here */}
-                    <div className="col-lg-12">
+
+                    <div className="col-lg-6 mt-5">
                       {/* col-lg-12 start here */}
                       <div className="invoice-details mt25">
                         <div className="well">
@@ -74,14 +72,30 @@ const invoiceItem = (props) => {
                               <li>
                                 <strong>Invoiced To</strong>
                               </li>
-                              <li>{streetaddress.name}</li>
-                              <li> {streetaddress.State}</li>
-                              <li>{streetaddress.streetaddress}</li>
-                              <li>{streetaddress.country}</li>
+                              <li>Name: {streetaddress.name}</li>
+                              <li>State: {streetaddress.State}</li>
+                              <li>Streetaddress: {streetaddress.streetaddress}</li>
+                              <li>Country: {streetaddress.country}</li>
                             </ul>
                           );
                         })}
                       </div>
+                    </div>
+                    <div className="col-lg-6 mt-5">
+                      {/* col-lg-6 start here */}
+                      <div className="invoice-from">
+                        {AllProductInfo1.map((pd, index) => {
+                          return (
+                            <ul className="list-unstyled text-right" key={index}>
+                              <li>Office Address: {pd.agents[0].officeAddress}</li>
+                              <li>Permanent Address{pd.agents[0].permanentAddress}</li>
+                              <li>Number: {pd.agents[0].number}</li>
+                            </ul>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    <div className="col-lg-12">
                       <div className="invoice-items">
                         <div className="table-responsive" style={{ overflow: "hidden", outline: "none" }} tabIndex={0}>
                           <table className="table table-bordered">
@@ -127,7 +141,7 @@ const invoiceItem = (props) => {
                                   );
                                 })}
                               </tr>
-                              <tr>
+                              {/* <tr>
                                 <th colSpan={2} className="text-right">
                                   20% VAT:
                                 </th>
@@ -138,14 +152,14 @@ const invoiceItem = (props) => {
                                     </th>
                                   );
                                 })}
-                              </tr>
+                              </tr> */}
 
-                              <tr>
+                              {/* <tr>
                                 <th colSpan={2} className="text-right">
                                   Credit:
                                 </th>
                                 <th className="text-center">$00.00 USD</th>
-                              </tr>
+                              </tr> */}
                               <tr>
                                 <th colSpan={2} className="text-right">
                                   Total:
@@ -169,14 +183,14 @@ const invoiceItem = (props) => {
                           </table>
                         </div>
                       </div>
-                      <div className="invoice-footer mt25">
+                      {/* <div className="invoice-footer mt25">
                         <p className="text-center">
                           Generated on Monday, October 08th, 2015{" "}
                           <a href="#" className="btn btn-default ml15">
                             <i className="fa fa-print mr5" /> Print
                           </a>
                         </p>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

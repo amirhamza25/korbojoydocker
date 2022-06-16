@@ -1,6 +1,5 @@
 import axios from "axios";
 import Link from "next/link";
-import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { addToCartProductInfo, cartState } from "../../atom/addTocartAtom";
 import { categoryAtom } from "../../atom/CategoryAtom";
@@ -9,7 +8,7 @@ import useScript from "../../commonFunction/ReloadJs";
 function vendorAllProduct(props) {
   useScript("/assets/js/main.min.js");
   const vendorProducts = props.vendorProduct;
-  console.log(vendorProducts);
+  // console.log(vendorProducts);
   const vendor = props.vendor[0];
 
   const [cart, setCart] = useRecoilState(cartState);

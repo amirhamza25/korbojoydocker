@@ -16,10 +16,10 @@ class MyDocument extends Document {
                         <meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc." />
                         <meta name="author" content="Potenza Global Solutions" />
                         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-                        <link rel="shortcut icon" href="assets/img/favicon.ico" />
+                        <link rel="shortcut icon" href="/assets/img/favicon.ico" />
                         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" />
-                        <link rel="stylesheet" type="text/css" href="assets/css/vendors.css" />
-                        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+                        <link rel="stylesheet" type="text/css" href="/assets/css/vendors.css" />
+                        <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
 
                     </div>
 
@@ -28,7 +28,7 @@ class MyDocument extends Document {
                     <Main />
                     <NextScript />
 
-                    <script async src="assets/js/vendors.js" />
+                    <script async src="/assets/js/vendors.js" />
                 </body>
             </Html>
         )

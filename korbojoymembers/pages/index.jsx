@@ -11,7 +11,7 @@ function Index(props) {
     setCookies("token", token1);
 
     if (checkToken == true) {
-      window.location.href = "http://feriwalacourier.com/home";
+      window.location.href = "http://localhost:3001/home";
     }
   }, []);
   return <div>index</div>;

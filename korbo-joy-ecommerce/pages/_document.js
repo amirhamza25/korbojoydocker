@@ -24,7 +24,7 @@ class MyDocument extends Document {
             href="/assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin="anonymous"
+            crossorigin="anonymous"
           />
 
           <link
@@ -32,21 +32,21 @@ class MyDocument extends Document {
             href="/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin="anonymous"
+            crossorigin="anonymous"
           />
           <link
             rel="preload"
             href="/assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2"
             as="font"
             type="font/woff2"
-            crossOrigin="anonymous"
+            crossorigin="anonymous"
           />
           <link
             rel="preload"
             href="/assets/fonts/wolmart87d5.woff?png09e"
             as="font"
             type="font/woff"
-            crossOrigin="anonymous"
+            crossorigin="anonymous"
           />
           <link
             rel="stylesheet"

@@ -10,7 +10,12 @@ import fromValueUpdate from "../commonFunction/onChangeHandle";
 import useScript from "../commonFunction/ReloadJs";
 function checkout(props) {
   useScript("/assets/js/main.min.js");
-  const agentInfo = props.data.data;
+  console.log(props);
+  const agentInfo = props.agent.data;
+  const countryInfo = props.country.data;
+  // console.log(countryInfo);
+  const districtsInfo = props.districts.data;
+  console.log(districtsInfo);
   const MySwal = withReactContent(Swal);
   const [userInformation, upadateProductState] = useState("");
   const categoryHandleChange = (e) => {
@@ -103,10 +108,11 @@ function checkout(props) {
                         <option value="default" selected="selected">
                           Please choose your region
                         </option>
-                        <option value="uk">United Kingdom (UK)</option>
-                        <option value="us">United States</option>
-                        <option value="fr">France</option>
-                        <option value="aus">Australia</option>
+                        {countryInfo.map((country, index) => (
+                          <option value={`${country.country_name}`} key={index}>
+                            {country.country_name}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -119,10 +125,11 @@ function checkout(props) {
                             <option value="default" selected="selected">
                               Please choose your city
                             </option>
-                            <option value="uk">United Kingdom (UK)</option>
-                            <option value="us">United States</option>
-                            <option value="fr">France</option>
-                            <option value="aus">Australia</option>
+                            {districtsInfo.map((districts, index) => (
+                              <option value={`${districts.name}`} key={index}>
+                                {districts.name}
+                              </option>
+                            ))}
                           </select>
                         </div>
                       </div>
@@ -130,17 +137,14 @@ function checkout(props) {
                     <div className="col-md-6">
                       <div className="form-group">
                         <label>Area *</label>
-                        <div className="select-box">
-                          <select name="State" onChange={categoryHandleChange} className="form-control form-control-md">
-                            <option value="default" selected="selected">
-                              Please choose your area
-                            </option>
-                            <option value="uk">United Kingdom (UK)</option>
-                            <option value="us">United States</option>
-                            <option value="fr">France</option>
-                            <option value="aus">Australia</option>
-                          </select>
-                        </div>
+                        <input
+                          type="text"
+                          className="form-control mb-2"
+                          name="State"
+                          onChange={categoryHandleChange}
+                          placeholder="For Example: House# 123, Street# 123, ABC Road"
+                          required
+                        />
                       </div>
                     </div>
                   </div>
@@ -204,7 +208,7 @@ function checkout(props) {
                     </div>
                   </div>
 
-                  {/* <div className="form-group mt-3">
+                  <div className="form-group mt-3">
                     <label htmlFor="order-notes">Order notes (optional)</label>
                     <textarea
                       className="form-control mb-0"
@@ -216,7 +220,7 @@ function checkout(props) {
                       placeholder="Notes about your order, e.g special notes for delivery"
                       defaultValue={""}
                     />
-                  </div> */}
+                  </div>
                 </div>
                 <div className="col-lg-5 mb-4 sticky-sidebar-wrapper">
                   <div className="order-summary-wrapper sticky-sidebar">
@@ -298,10 +302,13 @@ function checkout(props) {
   );
 }
 export async function getServerSideProps(context) {
-  const { data } = await axios.get(process.env.API_URL + "/GetInformationSingle/agent&chk=1");
+  const { data: agent } = await axios.get(process.env.API_URL + "/GetInformationSingle/agent&chk=1");
+
+  const { data: country } = await axios.get(process.env.API_URL + "/GetInformationSingle/apps_countries&chk=1");
+  const { data: districts } = await axios.get(process.env.API_URL + "/GetInformationSingle/districts&chk=1");
 
   return {
-    props: { data },
+    props: { agent, country, districts },
   };
 }
 export default checkout;

@@ -7,7 +7,7 @@ export const productState = atom({
   ],
   effects_UNSTABLE: [persistAtom],
 });
-console.log(productState)
+// console.log(productState)
 
 export const viewState = atom({
   key: "viewState",
